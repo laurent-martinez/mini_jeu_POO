@@ -48,18 +48,18 @@ class Humanplayer < Player
 
   end
   def show_state
-   puts "<#{user_name}> a #{@life_points} de points de vie pour l'instant et #{@weapon_level} de niveau d'armes--"
+  "<#{@name}> a [#{@life_points}] de points de vie pour l'instant et [#{@weapon_level}] de niveau d'armes--"
   end
 
   def search_weapon
 
    new_gun = rand(1..6)
-   puts "tu as trouvé une arme de niveau #{new_gun.to_i}"
+   puts "tu as trouvé une arme de niveau #{new_gun.to_i}\n"
     if new_gun > @weapon_level
       @weapon_level = new_gun
-    puts"nouvelle arme entre dans le Gungeon ==> et c'est parti pour  le show tout le monde est chaud"
+    puts"\n nouvelle arme entre dans le Gungeon ==> et c'est parti pour le show tout le monde est chaud"
     else
-   puts"F@*#$ it, je préfère autant garder mon arme de base"
+   puts"\n F@*#$ it, je préfère autant garder mon arme de base"
    end
 
   end
@@ -69,15 +69,17 @@ class Humanplayer < Player
     result = rand(1..6)
 
     if result == 6
-      if (@life_points + 80) <= 100
-        @life_points + 80
-      puts" c'est Noël en plein mois d'août Endiré"
+      @life_points += 80
+      if @life_points > 100
+        @life_points = 100
       end
+      puts" c'est Noël en plein mois d'août Endiré, +80 la famille"
     elsif result >=2 || result <= 5
-      if (@life_points + 50) <= 100
-        @life_points + 50
-      puts"considère toi presque chanceux, t'aurais très bien pu ne rien trouver. Où être mort, ou ne rien trouver en êtant mort"
+      @life_points += 50
+      if @life_points > 100
+        @life_points = 100
       end
+      puts"considère toi comme presque chanceux, t'aurais très bien pu ne rien trouver. Où être mort, ou ne rien trouver en étant mort, +50 tout rond"
     else
       puts ".....................WALOU................................ "
     end
