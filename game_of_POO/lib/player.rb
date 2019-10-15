@@ -1,4 +1,4 @@
-
+require "pry"
 
 class Player
 
@@ -12,7 +12,7 @@ class Player
   end
 
   def show_state
-   puts "--<#{name}> a #{@life_points} de points de vie pour l'instant--"
+   return "--<#{name}> a #{@life_points} de points de vie pour l'instant--"
   end
 
   def gets_damage(damages)
@@ -41,13 +41,15 @@ class Humanplayer < Player
 
   attr_accessor :weapon_level
 
-  def initialize(name)
-   @name = name
+  def initialize(user_name)
+   @name = user_name
    @life_points = 100
    @weapon_level = 1
 
   end
-
+  def show_state
+   puts "<#{user_name}> a #{@life_points} de points de vie pour l'instant et #{@weapon_level} de niveau d'armes--"
+  end
 
   def search_weapon
 
@@ -80,10 +82,6 @@ class Humanplayer < Player
       puts ".....................WALOU................................ "
     end
   end
-
-
-
-
-
-
 end
+
+binding.pry
